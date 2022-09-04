@@ -54,9 +54,10 @@ while T > T_min:
 end_tm = time.time()
 print("解:{} 最小值:{:.2f}\n误差:{:.3f}".format(x_best,f(x_best), abs(x_best)))
 print("迭代次数:{},用时:{:.2f}s".format(iter_cnt, end_tm - start_tm))
-xs = np.linspace(-3,3,100)
-ys = f(xs)
-plt.plot(xs, ys)
 ```
 
 
+## 总结
+1. 生成随机的解时，如果解不在定义域内，需要重新生成
+2. 温度阈值越小，最后的精度越高，但计算量增加
+3. 状态迭代次数越多，越可能找到全局最优解，但计算量增加
