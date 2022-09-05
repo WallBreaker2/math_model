@@ -65,3 +65,10 @@ print("迭代次数:{},用时:{:.2f}s".format(iter_cnt, end_tm - start_tm))
 
 ![png](Figure_1.svg)
 ![png](sin.svg)
+5. 双极小值的多项式函数$f(x)=\frac{1}{4}x^4-2x^2+x+3$，效果较好
+![png](poly.svg)
+```bash
+解:-2.1148227518014893 最小值:-3.06
+误差:0.000087
+迭代次数:339000,用时:4.77s
+```
