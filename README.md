@@ -45,8 +45,9 @@
 ### 优化算法
 1. [模拟退火算法(SAA)](https://blog.csdn.net/qq_44865735/article/details/124100778)
 2. [蚁群算法](https://blog.csdn.net/m0_46435566/article/details/124567110)
-## 三、常用软件
+## 三、常用软件及教程
 1. python,参考[菜鸟教程](https://www.runoob.com/python3/python3-tutorial.html)
+2. matplotlib:[中文教程](https://www.runoob.com/w3cnote/matplotlib-tutorial.html)，[英文教程](https://matplotlib.org/stable/plot_types/index.html)
 ## 参考资料
 1. [全国研究生数学建模竞赛试题](https://www.shumo.com/wiki/doku.php?id=%E7%AC%AC%E5%8D%81%E5%85%AB%E5%B1%8A_2021_%E5%85%A8%E5%9B%BD%E7%A0%94%E7%A9%B6%E7%94%9F%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E7%AB%9E%E8%B5%9B_npmcm_%E8%AF%95%E9%A2%98)
 2. [中国研究生数学建模竞赛试题汇总](https://zhuanlan.zhihu.com/p/45798920?ivk_sa=1024320u)

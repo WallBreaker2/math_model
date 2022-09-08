@@ -42,37 +42,99 @@ plt.title(r'$\sin(x)$的泰勒展开')
 plt.annotate(r'$x-\frac{x^3}{6}$', xy=(3,-1.5), 
             xytext=(4,-1.5),arrowprops=dict(arrowstyle='->', facecolor='blue'))
 
-# --------------- 子图 -------------------
-# 创建画板2
-fig2 = plt.figure(2)
+
+# -------------- 散点图 ------------
+# plt.style.use('_mpl-gallery')
+
+# make the data
+np.random.seed(3)
+x = 4 + np.random.normal(0, 2, 24)
+y = 4 + np.random.normal(0, 2, len(x))
+# size and color:
+sizes = np.random.uniform(15, 80, len(x))
+colors = np.random.uniform(15, 80, len(x))
+
+fig3 =plt.figure(3)
 # 创建画纸并使用画纸1
-ax1 = plt.subplot(2,1,1)
-plt.plot(x,y)
+ax = plt.subplot(2,3,1)
+
+ax.scatter(x, y, s=sizes, c=colors, vmin=0, vmax=100)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+# 条形图
+x = 0.5 + np.arange(8)
+y = np.random.uniform(2, 7, len(x))
 # 创建画纸并使用画纸2
-ax2 = plt.subplot(2,1,2)
-plt.plot(x,y3)
+ax = plt.subplot(2,3,2)
+plt.bar(x, y, width=1, edgecolor="white", linewidth=0.7)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+ax.set_title('条形图')
+# 茎图
+ax = plt.subplot(2,3,3)
+
+ax.stem(x, y)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+ax.set_title('茎图')
+# 阶梯图
+ax = plt.subplot(2,3,4)
+
+ax.step(x, y, linewidth=2.5)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+ax.set_title('阶梯图')
+# 填充图
+np.random.seed(1)
+x = np.linspace(0, 8, 16)
+y1 = 3 + 4*x/8 + np.random.uniform(0.0, 0.5, len(x))
+y2 = 1 + 2*x/8 + np.random.uniform(0.0, 0.5, len(x))
+
+# plot
+ax = plt.subplot(2,3,5)
+
+ax.fill_between(x, y1, y2, alpha=.5, linewidth=0)
+ax.plot(x, (y1 + y2)/2, linewidth=2)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+ax.set_title('填充图')
+# 扇形图
+# make data
+x = [1, 2, 3, 4]
+colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(x)))
+
+# plot
+ax = plt.subplot(2,3,6)
+ax.pie(x, colors=colors, radius=3, center=(4, 4),
+       wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
+
+ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
+       ylim=(0, 8), yticks=np.arange(1, 8))
+ax.set_title('扇形图')
+
+# 流
+# plot:
+plt.figure(4)
+ax = plt.subplot(2,1,1)
+plt.style.use('_mpl-gallery-nogrid')
+
+# make a stream function:
+X, Y = np.meshgrid(np.linspace(-3, 3, 256), np.linspace(-3, 3, 256))
+Z = (1 - X/2 + X**5 + Y**3) * np.exp(-X**2 - Y**2)
+# make U and V out of the streamfunction:
+V = np.diff(Z[1:, :], axis=1)
+U = -np.diff(Z[:, 1:], axis=0)
+
+
+
+ax.streamplot(X[1:, 1:], Y[1:, 1:], U, V)
+
 
 plt.show()
-# -------------- 散点图 ------------
-x = np.random.normal(0, 1, 100)
-y = np.random.normal(0, 1, 100)
-import pylab
-pylab.figure(1)
-pylab.scatter(x,y)
-
-# 等高线
-pylab.figure(2)
-def f(x,y): return (1-x/2+x**5+y**3)*np.exp(-x**2-y**2)
-
-n = 256
-x = np.linspace(-3,3,n)
-y = np.linspace(-3,3,n)
-X,Y = np.meshgrid(x,y)
-
-pylab.contourf(X, Y, f(X,Y), 8, alpha=.75, cmap='jet')
-C = pylab.contour(X, Y, f(X,Y), 8, colors='black', linewidth=.5)
-
-
-pylab.show()
 
 
