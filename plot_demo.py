@@ -135,6 +135,12 @@ U = -np.diff(Z[:, 1:], axis=0)
 ax.streamplot(X[1:, 1:], Y[1:, 1:], U, V)
 
 
+# 等高线
+ax = plt.subplot(2,1,2)
+X, Y = np.meshgrid(np.linspace(-2,2,20),np.linspace(-2,2,20))
+Z =  np.sin(X**2+Y**2)
+ax.contour(X,Y,Z,colors=['red', 'blue', 'green'])
+ax.set_title('等高线')
 plt.show()
 
 
