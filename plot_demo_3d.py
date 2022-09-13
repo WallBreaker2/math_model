@@ -176,4 +176,14 @@ X, Y = np.meshgrid(np.linspace(-2,2,50),np.linspace(-2,2,50))
 Z =  np.cos(X**2+Y**2)
 ax.plot_surface(X,Y,Z, cmap=plt.cm.YlGnBu_r)
 
+
+# 
+ax = plt.figure().add_subplot(projection = '3d')
+x = [0, 1]
+y = [0, 1]
+z = [0, 1]
+ax.plot(x, y, z, color='black')
+ax.plot([0,1],[0, 1],[0, 0], color = 'red', linestyle = '--')
+ax.plot([1,1],[1, 1],[0, 1], color = 'green', linestyle = '--')
+ax.grid(False)
 plt.show()
